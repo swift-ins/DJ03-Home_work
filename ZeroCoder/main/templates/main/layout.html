@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Ваш CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+
+    <title>{% block title %}CatDjango{% endblock %}</title>
+</head>
+<body class="bg-light text-dark">
+
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            <!-- Боковая панель -->
+            <aside class="col-md-3 col-lg-2 bg-white shadow p-3 d-flex flex-column align-items-center">
+                <img src="{% static 'main/img/dj.jpg' %}" alt="Django" class="img-fluid rounded mb-3" width="150">
+                <h4 class="mb-4">Django</h4>
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'home' %}">🏠 Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'page2' %}">📄 Второстепенная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'news_home' %}">📄 Новостная страница</a>
+                    </li>
+
+
+
+                </ul>
+                
+            </aside>
+
+            <!-- Основной контент -->
+            <main class="col-md-9 col-lg-10 p-4">
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (если нужен) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
